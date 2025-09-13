@@ -52,4 +52,60 @@ La interfaz se compone de:
 
 ---
  
+## 📌 Explicación de las Clases
+
+### 🔹 Clase `ConvertidorBits`
+Esta clase representa la **interfaz gráfica del convertidor**.  
+Se encarga de la interacción con el usuario y de la comunicación con la clase auxiliar `ConvertidorBytes`.  
+
+**Responsabilidades principales:**
+- Crear la interfaz gráfica con **Java Swing**.  
+- Agrupar botones de selección (`ButtonGroup`) para:
+  - **Unidad base** (Bits, Bytes, KB, MB, GB, TB).  
+  - **Unidad de conversión** (Bits, Bytes, KB, MB, GB, TB).  
+- Asignar un **valor numérico** a cada `JRadioButton` usando `putClientProperty`.  
+- Evitar que el usuario seleccione la misma unidad en ambos lados (deshabilita la opción correspondiente).  
+- Obtener las opciones seleccionadas mediante los métodos:  
+  - `getUnidadBaseSeleccionada()` → retorna un número (1–6) según la unidad base elegida.  
+  - `getUnidadConvertirSeleccionada()` → retorna un número (1–6) según la unidad de conversión elegida.  
+- Gestionar botones:
+  - **Calcular:**  
+    Convierte la unidad base a bytes con `convertirABytes()` y luego pasa el resultado a la unidad deseada con `convertirDesdeBytes()`.  
+  - **Borrar:**  
+    Limpia los campos de texto y reinicia la selección de unidades.  
+
+---
+
+### 🔹 Clase `ConvertidorBytes`
+Esta clase contiene la **lógica de conversión** entre las distintas unidades.  
+Se utiliza como clase auxiliar por `ConvertidorBits`.  
+
+**Métodos principales:**
+- `convertirABytes(int opcion, double valor)`  
+  Convierte el valor dado en cualquier unidad a **Bytes**.  
+  - Bits → Bytes (`valor / 8`)  
+  - Bytes → Bytes (`valor`)  
+  - KB → Bytes (`valor * 1024`)  
+  - MB → Bytes (`valor * 1024 * 1024`)  
+  - GB → Bytes (`valor * 1024 * 1024 * 1024`)  
+  - TB → Bytes (`valor * 1024 * 1024 * 1024 * 1024`)  
+
+- `convertirDesdeBytes(int opcion, double bytes)`  
+  Convierte un valor en **Bytes** hacia la unidad seleccionada.  
+  - Bytes → Bits (`bytes * 8`)  
+  - Bytes → Bytes (`bytes`)  
+  - Bytes → KB (`bytes / 1024`)  
+  - Bytes → MB (`bytes / (1024 * 1024)`)  
+  - Bytes → GB (`bytes / (1024 * 1024 * 1024)`)  
+  - Bytes → TB (`bytes / (1024 * 1024 * 1024 * 1024)`)  
+
+---
+
+### 🧩 Relación entre clases
+- `ConvertidorBits` = **Vista y Controlador** (interfaz gráfica + gestión de eventos).  
+- `ConvertidorBytes` = **Modelo** (lógica de negocio para convertir unidades).  
+
+El diseño sigue el principio de **separación de responsabilidades**:  
+- La interfaz solo muestra y gestiona opciones.  
+- La clase auxiliar hace los cálculos matemáticos.  
 

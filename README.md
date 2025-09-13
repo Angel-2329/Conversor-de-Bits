@@ -10,6 +10,7 @@ El proyecto **Convertidor de Bits y Bytes** es una aplicación desarrollada en *
 - TeraBytes  
 
 El usuario selecciona una **unidad base**, una **unidad de conversión**, introduce un valor y el sistema calcula el equivalente.
+Se ocupa una equivalencia de 1024 bits.
 
 ---
 

@@ -1,7 +1,7 @@
 # Conversor-de-Bits
 
 ## 📝 Descripción
-El proyecto **Convertidor de Bits y Bytes** es una aplicación desarrollada en **Java Swing** que permite realizar conversiones entre distintas unidades de almacenamiento digital:  
+El proyecto **Convertidor de Bits y Bytes** es un codigo desarrollado en **Java Swing** en el entorno NEATBEANS que permite realizar conversiones entre distintas unidades de almacenamiento digital:  
 - Bits  
 - Bytes  
 - KiloBytes  

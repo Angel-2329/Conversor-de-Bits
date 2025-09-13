@@ -42,6 +42,12 @@ La interfaz se compone de:
 - Campo de texto para el resultado.  
 - Botones **Calcular** y **Borrar**.  
 
+### Conversor de Bits
+![Conversor de Bits](Imagenes/ConversorPlano.png)
+
+### Conversor en ejecucion
+![Conversor de Bits en ejecucion](Imagenes/Ejecucion.png)
+
 ---
 
 ## 📂 Organización del código
